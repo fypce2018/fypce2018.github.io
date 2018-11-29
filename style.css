@@ -38,9 +38,9 @@ input, button {
 }
 
 .main-div button, .loggedin-div button {
-  background: #5d8ffc;
+  background: #66BB6A;
   color: #fff;
-  border: 1px solid #5d8ffc;
+  border: 1px solid #66BB6A;
   border-radius: 5px;
   padding: 15px;
   display: block;
@@ -50,9 +50,21 @@ input, button {
   -moz-transition: 0.3s;
 }
 
+.track {
+  background: #66BB6A;
+  color: #fff;
+  border: 1px solid #66BB6A;
+  border-radius: 5px;
+  display: block;
+  width: 25%;
+  transition: 0.3s;
+  margin-left: 400px;
+}
+
 .main-div button:hover, .loggedin-div button:hover {
   background: #fff;
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
   cursor: pointer;
+  
 }

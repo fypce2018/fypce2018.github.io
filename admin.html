@@ -1,14 +1,30 @@
 <html>
+
 <head>
   <title>Admin</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="tem/img/logo.png">
+
+  <style>
+    body{
+  
+  background-image: url("img/admin-bg.png");
+
+  
+  }
+  
+  
+  </style>
+
+
+
 </head>
-<body >
+
+<body>
 
   <div id="login_div" class="main-div">
-    <h3 align="center">ADMIN LOGIN</h3>
+    <h3 align="center" style="color:white">ADMIN LOGIN</h3>
     <input type="email" placeholder="Email..." id="email_field" />
     <input type="password" placeholder="Password..." id="password_field" />
 
@@ -24,77 +40,78 @@
 
 
 
-<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCz7MLsDK7YIB2iWopwKDg3oEc4OcAHXcw",
-    authDomain: "locomotive-geo-locotar.firebaseapp.com",
-    databaseURL: "https://locomotive-geo-locotar.firebaseio.com",
-    projectId: "locomotive-geo-locotar",
-    storageBucket: "locomotive-geo-locotar.appspot.com",
-    messagingSenderId: "953156487850"
-  };
-  firebase.initializeApp(config);
-</script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
   <script>
-  
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCz7MLsDK7YIB2iWopwKDg3oEc4OcAHXcw",
+      authDomain: "locomotive-geo-locotar.firebaseapp.com",
+      databaseURL: "https://locomotive-geo-locotar.firebaseio.com",
+      projectId: "locomotive-geo-locotar",
+      storageBucket: "locomotive-geo-locotar.appspot.com",
+      messagingSenderId: "953156487850"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script>
 
-    document.getElementById("user_div").style.display = "block";
-    document.getElementById("login_div").style.display = "none";
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
 
-    var user = firebase.auth().currentUser;
+        document.getElementById("user_div").style.display = "block";
+        document.getElementById("login_div").style.display = "none";
 
-    if(user != null){
+        var user = firebase.auth().currentUser;
 
-      var email_id = user.email;
-    document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-	
-window.location = 'cruds.html';
+        if (user != null) {
+
+          var email_id = user.email;
+          document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+
+          window.location = 'cruds.html';
+        }
+
+      } else {
+        // No user is signed in.
+
+        document.getElementById("user_div").style.display = "none";
+        document.getElementById("login_div").style.display = "block";
+
+      }
+    });
+
+    function login() {
+
+      var userEmail = document.getElementById("email_field").value;
+      var userPass = document.getElementById("password_field").value;
+
+      firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+
+        // ...
+      });
+
     }
 
-  } else {
-    // No user is signed in.
+    function logout() {
 
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
 
-  }
-});
+      firebase.auth().signOut();
+      window.location = "index.html";
+    }
 
-function login(){
-
-  var userEmail = document.getElementById("email_field").value;
-  var userPass = document.getElementById("password_field").value;
-
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-
-    window.alert("Error : " + errorMessage);
-
-    // ...
-  });
-
-}
-
-function logout(){
-
-	
-  firebase.auth().signOut();
-  window.location="index.html";
-}
-  
   </script>
-  
-  
-  
-  
-  
+
+
+
+
+
 
 </body>
+
 </html>
