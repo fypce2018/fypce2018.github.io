@@ -151,7 +151,13 @@
             frameborder="0" style="border:0"></iframe>
         </div>
       </section>
-      <form class="customform text-white" action="mailto:admin@pakrailtracking.tk?subject=message&body=fname" enctype="text/plain">
+
+
+ 
+
+
+
+<form class="customform text-white" action="mailto:admin@pakrailtracking.tk?subject=message&body=fname" enctype="text/plain">
         <!-- Section 3 -->
         <!-- Section 3 -->
         <section class="section background-dark">
@@ -160,25 +166,24 @@
             <form class="customform text-white" method="post" enctype="multipart/form-data">
               <div class="line">
                 <div class="margin">
-                  <div class="s-12 m-12 l-6">
-                    <input name="fname" class="name" placeholder="First Name" title="First Name" type="text" />
+                  <div class="s-12 m-12 l-12">
+                <input name="subject" placeholder="Subject" title="Subject" type="text" />
                   </div>
-                  <div class="s-12 m-12 l-6">
-                    <input name="lname" class="name" placeholder="Last Name" title="Last Name" type="text" />
-                  </div>
+                  
                 </div>
               </div>
 
               <div class="line">
+                
                 <div class="s-12">
-                  <input name="subject" class="required subject" placeholder="Subject" title="Subject" type="text" />
+                <textarea name="body"  placeholder="Your message" rows="3"></textarea>
+                 
                 </div>
-                <div class="s-12">
-                  <textarea name="message" class="required message" placeholder="Your message" rows="3"></textarea>
+                <div class="s-12"><button class="button border-radius text-white background-primary" type="submit">Send</button>
                 </div>
-                <div class="s-12"><button class="button border-radius text-white background-primary" type="submit">Send</button></div>
               </div>
             </form>
+    
           </div>
         </section>
     </article>
